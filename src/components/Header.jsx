@@ -13,7 +13,6 @@ export default function Header() {
         alignItems: "center",
         justifyContent: "space-evenly",
         position: "relative",
-
         zIndex: "1",
       }}
     >

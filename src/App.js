@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import ShowProduct from "./components/ShowProduct";
+import Form from "./components/Form";
 
 const initialProducts = [
   {
@@ -63,6 +64,13 @@ const initialProducts = [
 function App() {
   const [products, setProducts] = useState(initialProducts);
 
+
+  const handleUpdate = (expense) => {
+    setProducts((prevAdd) => {
+      return [...prevAdd, expense]
+    });
+
+  }
   const handleDelete = (index) => {
     const updatedArr = products.filter((_, i) => i !== index)
     setProducts(updatedArr)
@@ -74,6 +82,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Form onAddProduct={handleUpdate} size={initialProducts} />
       <ShowProduct handleSold={handleSold} handleDelete={handleDelete} products={products} />
     </div>
   );
